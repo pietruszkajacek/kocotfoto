@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import Author from '../interfaces/author'
 
 const postsDirectory = join(process.cwd(), '_posts')
 
@@ -15,9 +16,9 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const { data, content } = matter(fileContents)
 
   type Items = {
-    [key: string]: string
+    [key: string]: string | {[key:string]: string}
   }
-
+  
   const items: Items = {}
 
   // Ensure only the minimal needed data is exposed
@@ -28,7 +29,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (field === 'content') {
       items[field] = content
     }
-
     if (typeof data[field] !== 'undefined') {
       items[field] = data[field]
     }

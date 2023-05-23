@@ -1,13 +1,16 @@
-import Link from 'next/link'
+import Image from 'next/image'
+import Container from '../components/container'
 
 const Header = () => {
   return (
-    <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
-      <Link href="/" className="hover:underline">
-        Blog
-      </Link>
-      .
-    </h2>
+    <header className="flex h-auto bg-center bg-no-repeat bg-cover h-screen bg-[url('/assets/header.webp')]">
+      <Container>
+        <div className='flex justify-center items-end h-full'>
+          <h2 className="bg-black/50 text-white lg:text-5xl p-3 mb-4">Kamil Kocot Fotografia</h2>
+        </div>
+      </Container>
+
+    </header>
   )
 }
 

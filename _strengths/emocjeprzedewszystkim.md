@@ -1,0 +1,17 @@
+---
+title: 'Emocje przede wszystkim'
+excerpt: ''
+coverImage: '/assets/strengths/emocjeprzedewszystkim.jpg'
+date: '2023-05-16T05:35:07.322Z'
+author:
+  name: Kamil Kocot
+  picture: '/assets/strengths/authors/kamil.jpeg'
+ogImage:
+  url: ''
+---
+
+Podczas każdego ślubu za najważniejszy cel stawiam sobie uchwycenie najważniejszych momentów oraz Waszych emocji. 
+Mój styl to przede wszystkim naturalne i niewymuszone zdjęcia. Unikam sztucznego pozowanie, dzięki czemu podczas reportażu ślubnego 
+będziecie się czuli naturalnie, najczęściej nawet nie zauważając mojej obecności. 
+Często po zakończeniu pracy słyszę od Młodych Par, że byłem niewidoczny i w żaden sposób nie ingerowałem w przebieg ślubu i wesela. 
+Jednocześnie nie ma to najmniejszego wpływu na jakość wykonanych przeze mnie zdjęć.

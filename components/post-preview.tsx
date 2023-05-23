@@ -4,6 +4,8 @@ import CoverImage from './cover-image'
 import Link from 'next/link'
 import type Author from '../interfaces/author'
 
+import { InView } from 'react-intersection-observer';
+
 type Props = {
   title: string
   coverImage: string
@@ -24,7 +26,14 @@ const PostPreview = ({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+        <InView triggerOnce={false}>
+          {({ inView, ref, entry }) => (
+            <div ref={ref} className={`transition-opacity ${inView ? 'opacity-1' : 'opacity-0'}`}>
+              <CoverImage slug={slug} title={title} src={coverImage} />
+            </div>
+          )}
+        </InView>
+        {/* <CoverImage slug={slug} title={title} src={coverImage} /> */}
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
         <Link
