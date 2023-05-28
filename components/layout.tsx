@@ -2,7 +2,6 @@ import Alert from './alert'
 import Footer from './footer'
 import Meta from './meta'
 import Menu from '../components/menu'
-import Header from '../components/header'
 
 type Props = {
   preview?: boolean
@@ -10,8 +9,8 @@ type Props = {
 }
 
 const navigation = [
-  { name: 'Portfolio', href: '#', current: false },
-  { name: 'Wasze historie', href: '#', current: true },
+  { name: 'Portfolio', href: '#', current: true },
+  { name: 'Wasze historie', href: '#', current: false },
   { name: 'Blog', href: '#', current: false },
   { name: 'Kontakt', href: '#', current: false },
 ]
@@ -21,10 +20,9 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <Menu itemsMenu={navigation} />
-      <Header />
       <div className="min-h-screen">
         {/* <Alert preview={preview} /> */}
-        <main>{children}</main>
+        {children}
       </div>
       <Footer />
     </>
