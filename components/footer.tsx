@@ -3,10 +3,10 @@ import { EXAMPLE_PATH } from '../lib/constants'
 
 const Footer = () => {
   return (
-    <footer className="bg-fiolet border-t border-szary font-dosis">
+    <footer className="font-dosis bg-fiolet border-t border-szary">
       <Container>
         <div className="pt-14 flex flex-col lg:flex-row items-center">
-          <h3 className="text-white text-xl lg:text-[2.5rem] tracking-normal leading-tight text-center lg:text-right mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
+          <h3 className="text-white text-xl md:text-2xl lg:text-3xl tracking-normal leading-tight text-center lg:text-right mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
             Sprawdź również:
           </h3>
           <div className="flex lg:flex-row justify-start items-center lg:pl-4 lg:w-1/2">
@@ -51,7 +51,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className='pb-14 pt-10 text-center text-white'>Copyright © Kamil Kocot Fotografia 2023</div>
+        <div className='pb-14 pt-10 text-center text-white'>Copyright &copy; {new Date().getFullYear()} Kamil Kocot Fotografia</div>
       </Container>
     </footer>
   )
