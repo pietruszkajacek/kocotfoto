@@ -1,13 +1,14 @@
 ---
 title: 'Emocje przede wszystkim'
 excerpt: ''
-coverImage: '/assets/strengths/emocjeprzedewszystkim.jpg'
+coverImage: '/assets/strengths/emocjeprzedewszystkim.webp'
 date: '2023-05-16T05:35:07.322Z'
 author:
   name: Kamil Kocot
   picture: '/assets/strengths/authors/kamil.jpeg'
 ogImage:
   url: ''
+order: '1'
 ---
 
 Podczas każdego ślubu za najważniejszy cel stawiam sobie uchwycenie najważniejszych momentów oraz Waszych emocji. 

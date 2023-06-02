@@ -34,7 +34,7 @@ export default function Menu({ itemsMenu }: Props) {
   }, []);
 
   return (
-    <Disclosure as="nav" className={classNames(navbarShrinked ? menuStyles['navbar-shrink'] : 'bg-[#e3e3e3] sm:bg-[#e3e3e34f]', 'font-amaticsc fixed top-0 left-0 right-0')}>
+    <Disclosure as="nav" className={classNames(navbarShrinked ? menuStyles['navbar-shrink'] : 'bg-[#e3e3e3] sm:bg-[#e3e3e34f]', 'font-amaticsc fixed top-0 left-0 right-0 z-{100}')}>
       {({ open }) => (
         <Container>
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
