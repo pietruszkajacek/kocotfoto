@@ -1,7 +1,7 @@
 import Container from '../components/container'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPosts, getAllStrengths } from '../lib/api'
+import { getAllStrengths } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import Post from '../interfaces/post'
@@ -9,14 +9,13 @@ import Header from '../components/header'
 import About from '../components/about'
 import Strengths from '../components/strengths'
 import StrengthType from '../interfaces/strength'
+import markdownToHtml from '../lib/markdownToHtml'
 
 type Props = {
-  allPosts: Post[],
   allStrengths: StrengthType[]
 }
 
-export default function Index({ allPosts, allStrengths }: Props) {
-
+export default function Index({ allStrengths }: Props) {
   return (
     <>
       <Layout>
@@ -32,16 +31,7 @@ export default function Index({ allPosts, allStrengths }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ])
-  
-  const allStrengths = getAllStrengths([
+  const allStrengthsC = getAllStrengths([
     'title',
     'date',
     'slug',
@@ -51,7 +41,32 @@ export const getStaticProps = async () => {
     'order',
     'content',
   ])
+
+  //allStrengths[1].content = await markdownToHtml(allStrengths[1].content || '')
+
+  const allStrengths = await Promise.all( allStrengthsC.map(async (strength) => {
+    strength.content = await markdownToHtml(strength.content || '')
+    return strength
+  }))
+
+  console.log('test', allStrengthsC)
+
   return {
-    props: { allPosts, allStrengths },
+    props: { allStrengths },
   }
 }
+
+// export function getStaticProps() {
+//   const allStrengths = getAllStrengths([
+//     'title',
+//     'slug',
+//     'coverImage',
+//     'excerpt',
+//     'order',
+//     'content',
+//   ])
+  
+//   return {
+//     props: { allStrengths },
+//   }
+// }
