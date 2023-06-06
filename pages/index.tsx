@@ -1,21 +1,20 @@
-import Container from '../components/container'
-import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllStrengths } from '../lib/api'
+import { getAllStrengths, getAllPackages } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
-import Post from '../interfaces/post'
 import Header from '../components/header'
 import About from '../components/about'
 import Strengths from '../components/strengths'
 import StrengthType from '../interfaces/strength'
-import markdownToHtml from '../lib/markdownToHtml'
+import PackageType from '../interfaces/strength'
+import Packages from '../components/packages'
 
 type Props = {
-  allStrengths: StrengthType[]
+  allStrengths: StrengthType[],
+  allPackages: PackageType[],
 }
 
-export default function Index({ allStrengths }: Props) {
+export default function Index({ allStrengths, allPackages }: Props) {
   return (
     <>
       <Layout>
@@ -25,13 +24,14 @@ export default function Index({ allStrengths }: Props) {
         <Header />
         <About />
         <Strengths strengths={allStrengths}/>
+        <Packages packages={allPackages}/>
       </Layout>
     </>
   )
 }
 
 export const getStaticProps = async () => {
-  const allStrengthsC = getAllStrengths([
+  const allStrengths = await getAllStrengths([
     'title',
     'date',
     'slug',
@@ -42,31 +42,17 @@ export const getStaticProps = async () => {
     'content',
   ])
 
-  //allStrengths[1].content = await markdownToHtml(allStrengths[1].content || '')
+  const allPackages = await getAllPackages([
+    'title',
+    'slug',
+    'coverImage',
+    'order',
+    'content',
+  ])
 
-  const allStrengths = await Promise.all( allStrengthsC.map(async (strength) => {
-    strength.content = await markdownToHtml(strength.content || '')
-    return strength
-  }))
-
-  console.log('test', allStrengthsC)
+console.log(allPackages)
 
   return {
-    props: { allStrengths },
+    props: { allStrengths, allPackages },
   }
 }
-
-// export function getStaticProps() {
-//   const allStrengths = getAllStrengths([
-//     'title',
-//     'slug',
-//     'coverImage',
-//     'excerpt',
-//     'order',
-//     'content',
-//   ])
-  
-//   return {
-//     props: { allStrengths },
-//   }
-// }

@@ -7,7 +7,7 @@ author:
   picture: '/assets/strengths/authors/kamil.jpeg'
 ogImage:
   url: ''
-order: '3'
+order: '03'
 ---
 
-Poza naturalną kolorystyką do wyboru macie także zupełnie inny wariant — cały reportaż wykonany w czerni i bieli. Takie zdjęcia wyglądają niesamowicie elegancko i ponadczasowo, wyróżniając się niezależnie od panującej obecnie mody. Przykładowy reportaż w moim wykonaniu w wersji B&W znajdziecie pod poniższym linkiem:
+Poza naturalną kolorystyką do wyboru macie także zupełnie inny wariant — cały reportaż wykonany w&nbsp;czerni i&nbsp;bieli. Takie zdjęcia wyglądają niesamowicie elegancko i&nbsp;ponadczasowo, wyróżniając się niezależnie od panującej obecnie mody. Przykładowy reportaż w&nbsp;moim wykonaniu w wersji B&W znajdziecie pod poniższym linkiem:

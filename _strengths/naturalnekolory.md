@@ -7,7 +7,7 @@ author:
   picture: '/assets/strengths/authors/kamil.jpeg'
 ogImage:
   url: ''
-order: '2'
+order: '02'
 ---
 
 Podczas fotografowania stawiam przede wszystkim na naturalne kolory. Dzięki temu macie pewność, że wykonane przeze mnie zdjęcia będą świetną pamiątką, wiernie oddającą jedyny dzień Waszego życia.

@@ -4,8 +4,8 @@ const About = () => {
   return (
     <section id="about">
       <Container>
-        <div className="px-4 sm:px-8 lg:px-10 max-w-7xl mx-auto flex justify-center text-white text-justify text-xl md:text-2xl lg:text-3xl font-light font-dosis mb-14">
-          <div className='sm:basis-5/6'>
+        <div className="px-4 sm:px-8 lg:px-10 max-w-7xl mx-auto text-white text-justify text-xl md:text-2xl lg:text-3xl font-light font-dosis mb-14">
+          <div className='sm:w-5/6 mx-auto'>
             <p className="pt-5 lg:pt-10">
               Szukacie fotografa ślubnego, który wykona wyjątkowe zdjęcia na Waszym ślubie i&nbsp;weselu? Bardzo dobre technicznie,
               z&nbsp;uchwyconymi emocjami i&nbsp;najważniejszymi momentami? Takie, które wywołają efekt WOW? Albo filmowca, który
