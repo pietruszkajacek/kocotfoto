@@ -1,7 +1,7 @@
 ---
 title: 'Fotografuję do oczepin'
 excerpt: ''
-coverImage: '/assets/strengths/oczepiny.webp'
+coverImage: '/assets/strengths/fotografuje-do-oczepin.jpg'
 author:
   name: 'Kamil Kocot'
   picture: '/assets/strengths/authors/kamil.jpeg'

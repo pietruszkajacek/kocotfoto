@@ -1,7 +1,7 @@
 ---
 title: 'Emocje przede wszystkim'
 excerpt: ''
-coverImage: '/assets/strengths/emocjeprzedewszystkim.webp'
+coverImage: '/assets/strengths/emocje-przede-wszystkim.jpg'
 author:
   name: 'Kamil Kocot'
   picture: '/assets/strengths/authors/kamil.jpeg'

@@ -1,7 +1,7 @@
 ---
 title: 'Elegancka czerń i biel'
 excerpt: ''
-coverImage: '/assets/strengths/eleganckaczernibiel.webp'
+coverImage: '/assets/strengths/elegancka-czern-i-biel.jpg'
 author:
   name: 'Kamil Kocot'
   picture: '/assets/strengths/authors/kamil.jpeg'

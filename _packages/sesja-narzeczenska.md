@@ -1,7 +1,7 @@
 ---
 title: 'Sesja narzeczeńska'
 excerpt: ''
-coverImage: '/assets/packages/sesja-narzeczenska.jpg'
+coverImage: '/assets/packages/sesja-narzeczeńska-2.jpg'
 author:
   name: 'Kamil Kocot'
   picture: '/assets/strengths/authors/kamil.jpeg'

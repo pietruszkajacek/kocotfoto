@@ -1,7 +1,7 @@
 ---
 title: 'Naturalne kolory'
 excerpt: ''
-coverImage: '/assets/strengths/naturalnekolory.webp'
+coverImage: '/assets/strengths/naturalne-kolory.jpg'
 author:
   name: 'Kamil Kocot'
   picture: '/assets/strengths/authors/kamil.jpeg'

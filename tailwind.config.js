@@ -14,7 +14,8 @@ module.exports = {
         success: '#0070f3',
         cyan: '#79FFE1',
         fiolet: '#8670B3',
-        szary: '#e3e3e3'
+        szary: '#e3e3e3',
+        tlo: '#282828'
       },
       spacing: {
         28: '7rem',

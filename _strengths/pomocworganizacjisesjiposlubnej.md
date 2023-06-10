@@ -7,7 +7,7 @@ author:
   picture: '/assets/strengths/authors/kamil.jpeg'
 ogImage:
   url: ''
-order: '02'
+order: '05'
 ---
 
 Chcecie mieć niepowtarzalne zdjęcia z&nbsp;sesji poślubnej, ale nie bardzo macie na nią pomysł? Nie wiece, jakie miejsce będzie najlepsze? Albo boicie się, czy dacie radę zapozować przed aparatem? Możecie liczyć na moje pełne wsparcie!

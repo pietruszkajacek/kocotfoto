@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="pl">
       <Head />
-      <body className='bg-neutral-700'>
+      <body className='bg-tlo'>
         <Main />
         <NextScript />
       </body>

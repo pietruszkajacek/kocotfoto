@@ -1,5 +1,5 @@
 import CoverImage from './cover-image'
-import Link from 'next/link'
+import Image from 'next/image'
 import type Author from '../interfaces/author'
 import { InView } from 'react-intersection-observer'
 import markdownStyles from './markdown-styles.module.css'
@@ -32,8 +32,17 @@ const Strength = ({
       <InView triggerOnce={false}>
         {({ inView, ref, entry }) => (
           <div ref={ref} className={classNames(`transition-opacity ${inView ? 'opacity-1' : 'opacity-0'}`, '-z-50 max-w-full shrink-0 w-full sm:w-2/5 sm:grow-0 sm:basis-auto')}>
-            <div className='flex h-full flex-col justify-center'>
-              <img className='flex-none rounded-2xl w-full' src={coverImage}></img>
+            <div className='relative flex h-full flex-col justify-center'>
+              {/* <img className='flex-none rounded-2xl w-full' src={coverImage}></img> */}
+              <Image
+                className='flex-none rounded-2xl w-full'
+                width={0}
+                height={0}
+                src={coverImage}
+                sizes="(max-width: 639px) 100vw, (max-width: 1279px) 40vw, 40vw"
+                alt={slug}
+                style={{objectFit: "contain", height: 'auto'}}
+              />
             </div>
           </div>
         )}

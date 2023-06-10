@@ -50,8 +50,6 @@ export const getStaticProps = async () => {
     'content',
   ])
 
-console.log(allPackages)
-
   return {
     props: { allStrengths, allPackages },
   }
