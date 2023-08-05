@@ -6,7 +6,7 @@ import Header from '../components/header'
 import About from '../components/about'
 import Strengths from '../components/strengths'
 import StrengthType from '../interfaces/strength'
-import PackageType from '../interfaces/strength'
+import PackageType from '../interfaces/package'
 import Packages from '../components/packages'
 
 type Props = {
@@ -21,7 +21,7 @@ export default function Index({ allStrengths, allPackages }: Props) {
         <Head>
           <title>{`${CMS_NAME}`}</title>
         </Head>
-        <Header />
+        <Header pic="header" text="Kamil Kocot Fotografia" />
         <About />
         <Strengths strengths={allStrengths}/>
         <Packages packages={allPackages}/>

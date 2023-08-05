@@ -12,7 +12,7 @@ const navigation = [
   { name: 'Portfolio', href: '#', current: false },
   { name: 'Wasze historie', href: '#', current: false },
   { name: 'Blog', href: '#', current: false },
-  { name: 'Kontakt', href: '#', current: false },
+  { name: 'Kontakt', href: 'kontakt', current: false },
 ]
 
 const Layout = ({ preview, children }: Props) => {

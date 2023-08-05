@@ -1,10 +1,12 @@
 import { AppProps } from 'next/app'
 import '../styles/index.css'
-import { Amatic_SC, Dosis } from 'next/font/google';
+import { Amatic_SC, Dosis } from 'next/font/google'
+import 'dotenv/config'
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
-const amaticsc = Amatic_SC({ 
+const amaticsc = Amatic_SC({
   subsets: ['latin'],
-  weight:["700"],
+  weight: ["700"],
   variable: '--font-amaticsc',
 });
 
@@ -15,7 +17,10 @@ const dosis = Dosis({
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${amaticsc.variable} ${dosis.variable}`}>
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}> 
+      <main className={`${amaticsc.variable} ${dosis.variable}`}>
         <Component {...pageProps} />
-    </main>)
+      </main>
+    </GoogleReCaptchaProvider>
+  )
 }
