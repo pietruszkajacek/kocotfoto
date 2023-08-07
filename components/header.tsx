@@ -14,7 +14,7 @@ const Header = ({ pic, text }: Props) => {
     <header className={`${picVariants[pic]}`}>
       <Container>
         <div className='flex justify-center items-end h-full'>
-          <h2 className="font-amaticsc rounded-md bg-black/50 text-white text-5xl lg:text-7xl px-3 mb-[20vh]">{text}</h2>
+          <h2 className="font-amaticsc font-bold rounded-md bg-black/50 text-white text-5xl lg:text-7xl px-3 mb-[20vh]">{text}</h2>
         </div>
       </Container>
     </header >

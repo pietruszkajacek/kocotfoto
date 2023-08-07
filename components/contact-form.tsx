@@ -55,7 +55,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <ModalDialog openModal={isOpen} closeModal={setIsOpen} />
+      <ModalDialog openModal={isOpen} closeModal={setIsOpen} notificationType='OK'/>
       <section id="contact-form">
         <Container>
           <div className="px-4 sm:px-8 lg:px-10 max-w-7xl mx-auto text-white text-justify text-xl md:text-2xl lg:text-3xl font-light font-dosis mb-14">
@@ -66,7 +66,7 @@ const ContactForm = () => {
               <p className="py-5 lg:py-10">
                 Możesz się ze mną skontaktować na dwa sposoby — poprzez poniższy formularz lub korzystając z&nbsp;danych podanych na końcu tej strony.
               </p>
-              <form className="p-[30px] border-fiolet rounded-3xl border mt-8 sm:w-2/3 mx-auto" method="POST" onSubmit={handleFormVerify}>
+              <form className="p-[30px] border-purple-mountains-majesty-600 rounded-3xl border mt-8 sm:w-2/3 mx-auto" method="POST" onSubmit={handleFormVerify}>
                 <div className="grid grid-cols-1 gap-6">
 
                   <label className="block">
@@ -101,7 +101,7 @@ const ContactForm = () => {
                   <div className="flex items-center justify-center">
                     <button
                       type="submit"
-                      className={"w-1/2 rounded-3xl bg-fiolet uppercase font-medium  px-3 py-2 shadow-sm hover:bg-white hover:text-fiolet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiolet"}
+                      className={"w-1/2 rounded-3xl bg-purple-mountains-majesty-600 uppercase font-medium px-3 py-2 shadow-sm hover:bg-purple-mountains-majesty-300 hover:text-purple-mountains-majesty-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-mountains-majesty-900"}
                     >
                       Wyślij
                     </button>

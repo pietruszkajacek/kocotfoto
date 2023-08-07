@@ -3,10 +3,22 @@ import { useCallback, useState, useRef, useEffect, SetStateAction, Dispatch, Fra
 
 type Props = {
   openModal: boolean,
-  closeModal: Dispatch<SetStateAction<boolean>>
+  closeModal: Dispatch<SetStateAction<boolean>>,
+  title?: string,
+  notification?: string,
+  notificationType?: 'Alert' | 'Warning' | 'OK' | 'Info',
+  textButton?: string
 }
 
-function ModalDialog({ openModal, closeModal }: Props) {
+function ModalDialog({ openModal, closeModal, title='Coś poszło nie tak...', notification, notificationType = 'OK', textButton = 'Zamknij...' }: Props) {
+
+  const modalTypeVariants = {
+    Alert: "bg-rose-300 text-rose-900 hover:bg-rose-200 focus-visible:ring-rose-500",
+    Warning: "bg-orange-300 text-orange-900 hover:bg-orange-200 focus-visible:ring-orange-500",
+    OK: "bg-green-300 text-green-900 hover:bg-green-200 focus-visible:ring-green-500",
+    Info: "bg-blue-300 text-blue-900 hover:bg-blue-200 focus-visible:ring-blue-500",
+  } 
+
   useEffect(() => {
     if (openModal) {
       document.querySelector("html")?.classList.add("headless-modal-f");
@@ -17,7 +29,7 @@ function ModalDialog({ openModal, closeModal }: Props) {
 
   return (
     <Transition appear show={openModal} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={closeModal}>
+      <Dialog as="div" className="font-dosis relative z-10" onClose={closeModal}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -46,7 +58,7 @@ function ModalDialog({ openModal, closeModal }: Props) {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
                 >
-                  Payment successful
+                 {title}
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
@@ -58,10 +70,10 @@ function ModalDialog({ openModal, closeModal }: Props) {
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    className={`${modalTypeVariants[notificationType]} inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`}
                     onClick={() => closeModal(false)}
                   >
-                    Got it, thanks!
+                    {textButton}
                   </button>
                 </div>
               </Dialog.Panel>

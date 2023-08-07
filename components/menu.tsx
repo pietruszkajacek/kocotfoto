@@ -1,6 +1,5 @@
-import { Fragment } from 'react'
 import { Disclosure, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Container from './container'
 import menuStyles from './menu-styles.module.css'
 import { useState, useEffect } from 'react';
@@ -34,7 +33,7 @@ export default function Menu({ itemsMenu }: Props) {
   }, []);
 
   return (
-    <Disclosure as="nav" className={classNames(navbarShrinked ? menuStyles['navbar-shrink'] : 'bg-[#e3e3e3] sm:bg-[#e3e3e34f]', 'font-amaticsc fixed top-0 left-0 right-0 z-{100}')}>
+    <Disclosure as="nav" className={classNames(navbarShrinked ? menuStyles['navbar-shrink'] : 'bg-[#e3e3e3] sm:bg-[#e3e3e34f]', 'z-10 font-amaticsc fixed top-0 left-0 right-0')}>
       {({ open }) => (
         <Container>
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">

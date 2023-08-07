@@ -3,7 +3,7 @@ import { EXAMPLE_PATH } from '../lib/constants'
 
 const Footer = () => {
   return (
-    <footer className="font-dosis bg-fiolet border-t border-szary">
+    <footer className="font-dosis bg-purple-mountains-majesty-600 border-t border-szary">
       <Container>
         <div className="pt-14 flex flex-col lg:flex-row items-center">
           <h3 className="text-white text-xl md:text-2xl lg:text-3xl tracking-normal leading-tight text-center lg:text-right mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">

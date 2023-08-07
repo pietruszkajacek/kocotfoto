@@ -28,7 +28,7 @@ const Strength = ({
     <div className="flex flex-wrap justify-center mb-10 text-white text-justify text-lg/6 sm:text-xl/6 md:text-2xl lg:text-3xl font-light font-dosis">
       <InView triggerOnce={true}>
         {({ inView, ref, entry }) => (
-          <div className={'-z-50 max-w-full shrink-0 w-full sm:w-2/5 sm:grow-0 sm:basis-auto'}>
+          <div className={'max-w-full shrink-0 w-full sm:w-2/5 sm:grow-0 sm:basis-auto'}>
             <div className='overflow-hidden relative flex h-full flex-col justify-center'>
               {/* <img className='flex-none rounded-2xl w-full' src={coverImage}></img> */}
               <Image 

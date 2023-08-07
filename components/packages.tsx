@@ -38,7 +38,7 @@ const Packages = ({ packages }: Props) => {
                       'top-4': !inView,
                       'opacity-0': !inView
                     },
-                      '-z-50 transition-all ease-in-out duration-500 delay-150 relative block mx-auto w-1/3 rounded-3xl bg-fiolet uppercase text-center px-3 py-2 shadow-sm hover:bg-white hover:text-fiolet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiolet'
+                      'transition-all ease-in-out duration-500 delay-150 relative block mx-auto w-1/3 rounded-3xl bg-fiolet uppercase text-center px-3 py-2 shadow-sm hover:bg-white hover:text-fiolet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiolet'
                     )}
                   >
                     Kontakt
