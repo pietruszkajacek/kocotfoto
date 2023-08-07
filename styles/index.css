@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 .grecaptcha-badge { visibility: hidden; }
+
+.headless-modal-f
+{
+    padding: 0 !important;
+    overflow-y: scroll !important;
+}

@@ -1,10 +1,13 @@
 import Container from '../components/container'
 import type PackageType from '../interfaces/package'
 import Package from './package'
+import { InView } from 'react-intersection-observer'
+import classNames from 'classnames'
 
 type Props = {
   packages: PackageType[],
 }
+
 const Packages = ({ packages }: Props) => {
   function isEven(n: number) {
     return n % 2 == 0;
@@ -24,6 +27,25 @@ const Packages = ({ packages }: Props) => {
               przyszły lub nawet z&nbsp;dwuletnim wyprzedzeniem. Jeśli chcecie poznać cenę za reportaż w dniu Waszego ślubu lub macie
               inne pytania, skorzystajcie z&nbsp;poniższego przycisku i&nbsp;wypełnijcie formularz kontaktowy.
             </p>
+            <div className="mt-10">
+              <InView triggerOnce={true}>
+                {({ inView, ref, entry }) => (
+                  <a ref={ref}
+                    href="kontakt"
+                    className={classNames({
+                      'top-0': inView,
+                      'opacity-100': inView,
+                      'top-4': !inView,
+                      'opacity-0': !inView
+                    },
+                      '-z-50 transition-all ease-in-out duration-500 delay-150 relative block mx-auto w-1/3 rounded-3xl bg-fiolet uppercase text-center px-3 py-2 shadow-sm hover:bg-white hover:text-fiolet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiolet'
+                    )}
+                  >
+                    Kontakt
+                  </a>
+                )}
+              </InView>
+            </div>
           </div>
           <div className='flex flex-wrap justify-evenly'>
             {packages.map((pack, index) => (

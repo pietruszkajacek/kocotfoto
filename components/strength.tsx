@@ -3,6 +3,7 @@ import Image from 'next/image'
 import type Author from '../interfaces/author'
 import { InView } from 'react-intersection-observer'
 import markdownStyles from './markdown-styles.module.css'
+import classNames from 'classnames'
 
 type Props = {
   title: string
@@ -12,10 +13,6 @@ type Props = {
   slug: string
   content: string
   even: boolean
-}
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
 }
 
 const Strength = ({
@@ -29,13 +26,22 @@ const Strength = ({
 }: Props) => {
   return (
     <div className="flex flex-wrap justify-center mb-10 text-white text-justify text-lg/6 sm:text-xl/6 md:text-2xl lg:text-3xl font-light font-dosis">
-      <InView triggerOnce={false}>
+      <InView triggerOnce={true}>
         {({ inView, ref, entry }) => (
-          <div ref={ref} className={classNames(`transition-opacity ${inView ? 'opacity-1' : 'opacity-0'}`, '-z-50 max-w-full shrink-0 w-full sm:w-2/5 sm:grow-0 sm:basis-auto')}>
-            <div className='relative flex h-full flex-col justify-center'>
+          <div className={'-z-50 max-w-full shrink-0 w-full sm:w-2/5 sm:grow-0 sm:basis-auto'}>
+            <div className='overflow-hidden relative flex h-full flex-col justify-center'>
               {/* <img className='flex-none rounded-2xl w-full' src={coverImage}></img> */}
-              <Image
-                className='flex-none rounded-2xl w-full'
+              <Image 
+                ref={ref} 
+                className={classNames({
+                  'left-0': inView,
+                  'opacity-100': inView,
+                  'left-[10%]': even && !inView,
+                  'left-[-10%]': !even && !inView,
+                  'opacity-0': !inView
+                },
+                  'relative transition-all ease-in-out duration-500 delay-150 flex-none rounded-2xl w-full'
+                )}
                 width={0}
                 height={0}
                 src={coverImage}
