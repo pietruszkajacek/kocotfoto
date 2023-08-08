@@ -9,6 +9,9 @@ export const theme = {
       dosis: ["Dosis", ..._fontFamily.sans],
       amaticsc: ["Amatic SC", ..._fontFamily.sans],
     },
+    transitionProperty: {
+      'top-opacity': 'top, opacity',
+    },    
     colors: {
       'accent-1': '#FAFAFA',
       'accent-2': '#EAEAEA',
