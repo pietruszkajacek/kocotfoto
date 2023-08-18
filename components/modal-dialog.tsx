@@ -1,12 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { useCallback, useState, useRef, useEffect, SetStateAction, Dispatch, Fragment } from "react";
+import NotificationsType from '../interfaces/modal-dialog';
 
 type Props = {
   openModal: boolean,
   closeModal: Dispatch<SetStateAction<boolean>>,
   title?: string,
   notification?: string,
-  notificationType?: 'Alert' | 'Warning' | 'OK' | 'Info',
+  notificationType?: NotificationsType,
   textButton?: string
 }
 

@@ -4,6 +4,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ModalDialog from './modal-dialog';
 import classNames from 'classnames';
 import { InView } from 'react-intersection-observer';
+import NotificationsType from '../interfaces/modal-dialog';
 
 type InputState = "NotVerify" | "VerifyPass" | "VerifyNotPass";
 
@@ -15,7 +16,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState<InputState>('NotVerify');
   const [date, setDate] = useState<InputState>('NotVerify');
   const [notification, setNotification] = useState<string>('');
-  const [notificationType, setNotificationType] = useState<string>('');
+  const [notificationType, setNotificationType] = useState<NotificationsType>('OK');
 
   const [nameTest, setNameTest] = useState<InputState>('NotVerify');
   const [formProcess, setFormProcess] = useState<boolean>(false);
@@ -48,14 +49,16 @@ const ContactForm = () => {
 
     if (inputRef.current.value !== '') {
       setNameTest('VerifyPass');
+      setNotificationType('OK');
     } else {
       setNameTest('VerifyNotPass');
+      setNotificationType('Alert');
     }
   }
 
   return (
     <>
-      <ModalDialog openModal={isOpen} closeModal={setIsOpen} notificationType='Alert' title='Formularz kontaktowy'
+      <ModalDialog openModal={isOpen} closeModal={setIsOpen} notificationType={notificationType} title='Formularz kontaktowy'
         notification='Proszę wypełnić poprawnie wszystkie oznaczone pola formularza i&nbsp;spróbować ponownie.' textButton='Zamknij' />
       <section id="contact-form">
         <Container>
