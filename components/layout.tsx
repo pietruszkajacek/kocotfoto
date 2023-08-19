@@ -9,7 +9,7 @@ type Props = {
 }
 
 const navigation = [
-  { name: 'Portfolio', href: '#', current: false },
+  { name: 'Portfolio', href: 'portfolio', current: false },
   { name: 'Wasze historie', href: '#', current: false },
   { name: 'Blog', href: '#', current: false },
   { name: 'Kontakt', href: 'kontakt', current: false },

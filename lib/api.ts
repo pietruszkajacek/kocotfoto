@@ -1,16 +1,10 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-import Author from '../interfaces/author'
 import markdownToHtml from './markdownToHtml'
 
-const postsDirectory = join(process.cwd(), '_posts')
 const strengthsDirectory = join(process.cwd(), '_strengths')
 const packagesDirectory = join(process.cwd(), '_packages')
-
-export function getPostSlugs() {
-    return fs.readdirSync(postsDirectory)
-}
 
 export function getStrengthsSlugs() {
     return fs.readdirSync(strengthsDirectory)
@@ -51,10 +45,6 @@ export async function getDataBySlug(slug: string, dataDirectory: string, fields:
     return items
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-    return getDataBySlug(slug, postsDirectory, fields)
-}
-
 export function getStrengthBySlug(slug: string, fields: string[] = []) {
     return getDataBySlug(slug, strengthsDirectory, fields)
 }
@@ -63,27 +53,20 @@ export function getPackageBySlug(slug: string, fields: string[] = []) {
     return getDataBySlug(slug, packagesDirectory, fields)
 }
 
-// export function getAllPosts(fields: string[] = []) {
-//     const slugs = getPostSlugs()
-//     const posts = slugs
-//         .map((slug) => getPostBySlug(slug, fields))
-//         // sort posts by date in descending order
-//         .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-//     return posts
-// }
-
 export async function getAllStrengths(fields: string[] = []) {
     const slugs = getStrengthsSlugs()
 
     return (await Promise.all(slugs
         .map((slug) => getStrengthBySlug(slug, fields))))
+        // sort strength by date in asc order
         .sort((strength1, strength2) => (strength1.order > strength2.order ? 1 : -1))
 }
 
 export async function getAllPackages(fields: string[] = []) {
     const slugs = getPackagesSlugs()
-
+    
     return (await Promise.all(slugs
         .map((slug) => getPackageBySlug(slug, fields))))
+        // sort package by date in asc order
         .sort((package1, package2) => (package1.order > package2.order ? 1 : -1))
 }

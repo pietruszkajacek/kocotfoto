@@ -9,6 +9,7 @@ const Header = ({ pic, text }: Props) => {
   const picVariants = {
     header: "flex bg-center bg-no-repeat bg-cover h-screen bg-[url('/assets/header.webp')]",
     headercontact: "flex bg-center bg-no-repeat bg-cover h-screen bg-[url('/assets/headercontact.webp')]",
+    headerportfolio: "flex bg-center bg-no-repeat bg-cover h-screen bg-[url('/assets/headerportfolio.webp')]",
   }  
   return (
     <header className={`${picVariants[pic]}`}>
