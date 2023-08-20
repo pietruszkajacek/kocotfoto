@@ -2,7 +2,7 @@ import Layout from '../components/layout'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 import Header from '../components/header'
-import { getPhotos, getUnsplashPhotos } from '../lib/photos'
+import { getPhotos } from '../lib/photos'
 import { Photo, PhotoAlbum } from "react-photo-album";
 import NextJsImage from '../components/next-js-image'
 import Container from '../components/container'
