@@ -6,12 +6,26 @@ import { getPhotos, getUnsplashPhotos } from '../lib/photos'
 import { Photo, PhotoAlbum } from "react-photo-album";
 import NextJsImage from '../components/next-js-image'
 import Container from '../components/container'
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+// import optional lightbox plugins
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Counter from "yet-another-react-lightbox/plugins/counter";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import "yet-another-react-lightbox/plugins/counter.css";
 
 type Props = {
     portfolioPhotos: Photo[],
 }
 
 export default function Portfolio({ portfolioPhotos }: Props) {
+    const [index, setIndex] = useState(-1);
+
     return (
         <Layout>
             <Head>
@@ -43,6 +57,16 @@ export default function Portfolio({ portfolioPhotos }: Props) {
                                         { viewport: "(max-width: 1199px)", size: "calc(100vw - 30px)" },
                                     ],
                                 }}
+                                onClick={({ index }) => setIndex(index)}
+                            />
+
+                            <Lightbox
+                                slides={portfolioPhotos}
+                                open={index >= 0}
+                                index={index}
+                                close={() => setIndex(-1)}
+                                // enable optional lightbox plugins
+                                plugins={[Fullscreen, Slideshow, Zoom, Counter]}
                             />
                         </div>
                     </div>

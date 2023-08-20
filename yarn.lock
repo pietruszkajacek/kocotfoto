@@ -1217,7 +1217,7 @@ queue@6.0.2:
   dependencies:
     inherits "~2.0.3"
 
-"react-dom@^16 || ^17 || ^18", "react-dom@^17.0 || ^18.0", react-dom@^18.2.0:
+"react-dom@^16 || ^17 || ^18", "react-dom@^17.0 || ^18.0", react-dom@^18.2.0, react-dom@>=16.8.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -1607,6 +1607,11 @@ yaml@^2.1.1:
   version "2.2.2"
   resolved "https://registry.npmjs.org/yaml/-/yaml-2.2.2.tgz"
   integrity sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==
+
+yet-another-react-lightbox@^3.12.1:
+  version "3.12.1"
+  resolved "https://registry.npmjs.org/yet-another-react-lightbox/-/yet-another-react-lightbox-3.12.1.tgz"
+  integrity sha512-jymcueTmoaVEQfKytnKf5EqH2fNIjxBVutOzh5ufe4nhlrj24f/TUjNmYjNj6yaGdIbkP0xW3/AzOKWY7cwKoA==
 
 zod@3.21.4:
   version "3.21.4"
