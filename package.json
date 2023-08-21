@@ -22,7 +22,7 @@
     "react-photo-album": "^2.3.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
-    "typescript": "^4.7.4",
+    "typescript": "^5.1.6",
     "yet-another-react-lightbox": "^3.12.1"
   },
   "devDependencies": {
