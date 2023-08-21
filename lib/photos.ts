@@ -8,7 +8,10 @@ const sizeOf = promisify(imagesize)
 
 export async function getPhotos(url: string, dir: string): Promise<Array<Photo>> {
     const photosDirectory = join(process.cwd(), dir);
-    const photos = fs.readdirSync(photosDirectory);
+    const files = fs.readdirSync(photosDirectory);
+
+    // TODO: RegExp filter files by image extension (jpg|webp|png... etc.)
+    const photos = files;
 
     return (await Promise.all(photos.map(async (photo) => {
         try {
