@@ -8,10 +8,47 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        dosis: ['var(--font-dosis)'],
+        amaticsc: ['var(--font-amaticsc)'],
+      },
+      colors: {
+        'main-bg-color': '#282828',
+        'main-menu-gray': '#e3e3e3',
+        'purple-mountains-majesty': {
+          '50': '#f8f7fb',
+          '100': '#f1f0f7',
+          '200': '#e4e3f1',
+          '300': '#d0cce6',
+          '400': '#b6aed7',
+          '500': '#9c8dc5',
+          '600': '#8670b3',
+          '700': '#7660a1',
+          '800': '#635087',
+          '900': '#52436f',
+          '950': '#352b4a',
+        },
+        'mercury': {
+          '50': '#f7f7f7',
+          '100': '#ededed',
+          '200': '#e3e3e3',
+          '300': '#c8c8c8',
+          '400': '#adadad',
+          '500': '#999999',
+          '600': '#888888',
+          '700': '#7b7b7b',
+          '800': '#676767',
+          '900': '#545454',
+          '950': '#363636',
+        },
+      },
+      transitionProperty: {
+        'top-opacity': 'top, opacity',
+      },
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),    
+    require('@tailwindcss/forms'),
   ],
 }
 export default config
