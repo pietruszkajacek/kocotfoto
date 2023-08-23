@@ -1,3 +1,5 @@
+'use client'
+
 import type StrengthType from '../interfaces/strength'
 import Container from '../components/container'
 import Strength from './strength'
@@ -16,9 +18,7 @@ export default function Strengths({ strengths }: Props) {
                             key={strength.slug}
                             title={strength.title}
                             content={strength.content}
-                            author={strength.author}
                             slug={strength.slug}
-                            excerpt={strength.excerpt}
                             coverImage={strength.coverImage}
                             even={(index + 1) % 2 === 0}
                         />

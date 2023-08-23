@@ -1,12 +1,6 @@
 ---
 title: 'Adekwatny ubiór'
-excerpt: ''
 coverImage: '/assets/strengths/adekwatny-ubior.webp'
-author:
-  name: 'Kamil Kocot'
-  picture: '/assets/strengths/authors/kamil.jpeg'
-ogImage:
-  url: ''
 order: '11'
 ---
 

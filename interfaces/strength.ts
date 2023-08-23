@@ -1,15 +1,9 @@
-import type Author from './author'
-
 type StrengthType = {
-  slug: string
-  title: string
-  coverImage: string
-  author: Author
-  excerpt: string
-  ogImage: {
-    url: string
-  }
-  content: string
+  slug: string;
+  title: string;
+  coverImage: string;
+  content: string;
+  order: string;
 }
 
 export default StrengthType

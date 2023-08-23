@@ -1,3 +1,5 @@
+'use client'
+
 import Container from '../components/container'
 import type PackageType from '../interfaces/package'
 import Package from './package'
@@ -38,7 +40,7 @@ const Packages = ({ packages }: Props) => {
                       'top-4': !inView,
                       'opacity-0': !inView
                     },
-                      'transition-all ease-in-out duration-500 delay-150 relative block mx-auto w-1/3 rounded-3xl bg-fiolet uppercase text-center px-3 py-2 shadow-sm hover:bg-white hover:text-fiolet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiolet'
+                      'transition-all ease-in-out duration-500 delay-150 relative block mx-auto w-1/3 rounded-3xl bg-purple-mountains-majesty-600 uppercase text-center px-3 py-2 shadow-sm hover:bg-white hover:text-purple-mountains-majesty-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiolet'
                     )}
                   >
                     Kontakt

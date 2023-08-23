@@ -1,15 +1,15 @@
-import CoverImage from './cover-image'
+'use client'
+
 import Image from 'next/image'
 import type Author from '../interfaces/author'
 import { InView } from 'react-intersection-observer'
 import markdownStyles from './markdown-styles.module.css'
 import classNames from 'classnames'
+import StrengthType from '@/interfaces/strength'
 
 type Props = {
   title: string
   coverImage: string
-  excerpt: string
-  author: Author
   slug: string
   content: string
   even: boolean
@@ -18,8 +18,6 @@ type Props = {
 const Strength = ({
   title,
   coverImage,
-  excerpt,
-  author,
   slug,
   content,
   even
