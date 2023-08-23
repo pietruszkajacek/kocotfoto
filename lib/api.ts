@@ -2,6 +2,8 @@ import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 import markdownToHtml from './markdownToHtml'
+import StrengthType from '@/interfaces/strength'
+import PackageType from '@/interfaces/package'
 
 const strengthsDirectory = join(process.cwd(), '_strengths')
 const packagesDirectory = join(process.cwd(), '_packages')
@@ -23,8 +25,8 @@ export async function getDataBySlug(slug: string, dataDirectory: string, fields:
     const contentHTML = await markdownToHtml(content || '')
 
     type Items = {
-        [key: string]: string | { [key: string]: string }
-        // [key: string]: string | any
+        //[key: string]: string//| { [key: string]: string }
+        [key: string]: string | any
     }
 
     const items: Items = {}
@@ -45,12 +47,32 @@ export async function getDataBySlug(slug: string, dataDirectory: string, fields:
     return items
 }
 
-export function getStrengthBySlug(slug: string, fields: string[] = []) {
-    return getDataBySlug(slug, strengthsDirectory, fields)
+export async function getStrengthBySlug(slug: string, fields: string[] = []) {
+    const Items = await getDataBySlug(slug, strengthsDirectory, fields);
+
+    const Strength: StrengthType = {
+        title: Items.title,
+        content: Items.content,
+        coverImage: Items.coverImage,
+        order: Items.order,
+        slug: Items.slug
+    }
+
+    return Strength;
 }
 
-export function getPackageBySlug(slug: string, fields: string[] = []) {
-    return getDataBySlug(slug, packagesDirectory, fields)
+export async function getPackageBySlug(slug: string, fields: string[] = []) {
+    const Items = await getDataBySlug(slug, packagesDirectory, fields);
+
+    const Package: PackageType = {
+        title: Items.title,
+        content: Items.content,
+        coverImage: Items.coverImage,
+        order: Items.order,
+        slug: Items.slug
+    }
+
+    return Package;
 }
 
 export async function getAllStrengths(fields: string[] = []) {
