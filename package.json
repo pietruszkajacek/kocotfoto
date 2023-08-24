@@ -20,8 +20,8 @@
     "react-google-recaptcha-v3": "^1.10.1",
     "react-intersection-observer": "^9.4.3",
     "react-photo-album": "^2.3.0",
-    "remark": "^14.0.2",
-    "remark-html": "^15.0.1",
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2",
     "typescript": "^5.1.6",
     "yet-another-react-lightbox": "^3.12.1"
   },
@@ -31,6 +31,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.7",
+    "eslint-config-next": "^13.4.19",
     "postcss": "^8.4.14",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",

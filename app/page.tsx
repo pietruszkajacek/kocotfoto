@@ -2,8 +2,6 @@ import About from '@/components/about'
 import Header from '@/components/header'
 import { getAllStrengths, getAllPackages } from '@/lib/api'
 import Strengths from '@/components/strengths';
-import StrengthType from '@/interfaces/strength';
-import PackagesType from '@/interfaces/package';
 import Packages from '@/components/packages';
 
 export default async function Index() {
@@ -22,7 +20,6 @@ export default async function Index() {
         'order',
         'content'
     ])
-
 
     return (
         <>

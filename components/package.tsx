@@ -1,6 +1,5 @@
-import CoverImage from './cover-image'
-import Link from 'next/link'
-import { InView } from 'react-intersection-observer'
+// 'use client'
+
 import markdownStyles from './markdown-styles.module.css'
 
 type Props = {
