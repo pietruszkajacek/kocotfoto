@@ -1,11 +1,9 @@
-import Layout from '../components/layout'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
-import Header from '../components/header'
-import { getPhotos } from '../lib/photos'
+'use client'
+
+import Header from '@/components/header'
 import { Photo, PhotoAlbum } from "react-photo-album";
-import NextJsImage from '../components/next-js-image'
-import Container from '../components/container'
+import NextJsImage from '@/components/next-js-image'
+import Container from '@/components/container'
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
@@ -23,14 +21,11 @@ type Props = {
     portfolioPhotos: Photo[],
 }
 
-export default function Portfolio({ portfolioPhotos }: Props) {
+export default function PortfolioPage({ portfolioPhotos }: Props) {
     const [index, setIndex] = useState(-1);
 
     return (
-        <Layout>
-            <Head>
-                <title>{`${CMS_NAME}`}</title>
-            </Head>
+        <>
             <Header pic="headerportfolio" text='Portfolio' />
             <section id="portfolio">
                 <Container>
@@ -72,13 +67,6 @@ export default function Portfolio({ portfolioPhotos }: Props) {
                     </div>
                 </Container>
             </section>
-        </Layout>
+        </>
     )
-}
-
-export const getStaticProps = async () => {
-    const portfolioPhotos = await getPhotos('/assets/portfolio/', 'public/assets/portfolio');
-    return {
-        props: { portfolioPhotos },
-    }
 }

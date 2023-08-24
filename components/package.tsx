@@ -1,6 +1,5 @@
-// 'use client'
-
 import markdownStyles from './markdown-styles.module.css'
+import cn from 'classnames'
 
 type Props = {
   title: string
@@ -8,10 +7,6 @@ type Props = {
   slug: string
   content: string
   even: boolean
-}
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
 }
 
 const Package = ({
@@ -29,7 +24,7 @@ const Package = ({
         <div className={'flex h-full flex-col justify-center min-h-[300px] sm:min-h-[500px] bg-center bg-cover'} style={{ backgroundImage: `url("${coverImage}")` }}>
         </div>
       </div>
-      <div className={classNames(even ? 'sm:order-first' : '', 'px-4 sm:px-5 max-w-full shrink-0 w-full sm:w-1/2 sm:grow-0 sm:basis-auto flex flex-col justify-center')}>
+      <div className={cn({'sm:order-first': even}, 'px-4 sm:px-5 max-w-full shrink-0 w-full sm:w-1/2 sm:grow-0 sm:basis-auto flex flex-col justify-center')}>
         <h4 className='font-amaticsc mt-6 sm:mb-6 sm:mt-0 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>{title}</h4>
         <div
           className={markdownStyles['markdown']}

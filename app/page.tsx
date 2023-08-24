@@ -1,10 +1,7 @@
-import About from '@/components/about'
-import Header from '@/components/header'
 import { getAllStrengths, getAllPackages } from '@/lib/api'
-import Strengths from '@/components/strengths';
-import Packages from '@/components/packages';
+import HomePage from './home-page';
 
-export default async function Index() {
+export default async function Page() {
     const allStrengths = await getAllStrengths([
         'title',
         'slug',
@@ -22,11 +19,6 @@ export default async function Index() {
     ])
 
     return (
-        <>
-            <Header pic="header" text="Kamil Kocot Fotografia" />
-            <About />
-            <Strengths strengths={allStrengths}/>
-            <Packages packages={allPackages}/>
-        </>
+        <HomePage allPackages={allPackages}  allStrengths={allStrengths}/>
     )
 }

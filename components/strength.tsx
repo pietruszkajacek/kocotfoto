@@ -1,11 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import type Author from '../interfaces/author'
 import { InView } from 'react-intersection-observer'
 import markdownStyles from './markdown-styles.module.css'
-import classNames from 'classnames'
-import StrengthType from '@/interfaces/strength'
+import cn from 'classnames'
 
 type Props = {
   title: string
@@ -31,7 +29,7 @@ const Strength = ({
               {/* <img className='flex-none rounded-2xl w-full' src={coverImage}></img> */}
               <Image 
                 ref={ref} 
-                className={classNames({
+                className={cn({
                   'left-0': inView,
                   'opacity-100': inView,
                   'left-[10%]': even && !inView,
@@ -51,7 +49,7 @@ const Strength = ({
           </div>
         )}
       </InView>
-      <div className={classNames(even ? 'sm:order-first' : '', 'sm:px-5 max-w-full shrink-0 w-full sm:w-3/5 sm:grow-0 sm:basis-auto')}>
+      <div className={cn(even ? 'sm:order-first' : '', 'sm:px-5 max-w-full shrink-0 w-full sm:w-3/5 sm:grow-0 sm:basis-auto')}>
         <h4 className='font-amaticsc my-6 sm:mb-6 sm:mt-0 text-center sm:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>{title}</h4>
         <div
           className={markdownStyles['markdown']}
