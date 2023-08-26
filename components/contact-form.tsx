@@ -41,13 +41,13 @@ const ContactForm = () => {
 
   }, [executeRecaptcha]);
 
-  const handleFormVerify = (e: any) => {
+  const handleFormVerify = (e) => {
     e.preventDefault();
 
     setFormProcess(true);
     setIsOpen(true);
 
-    if (inputRef.current.value !== '') {
+    if (inputRef.current !== '') {
       setNameTest('VerifyPass');
       setNotificationType('OK');
     } else {
