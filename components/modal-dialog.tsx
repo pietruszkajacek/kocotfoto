@@ -11,7 +11,7 @@ type Props = {
   textButton?: string
 }
 
-function ModalDialog({ openModal, closeModal, title='Coś poszło nie tak...', notification, notificationType = 'OK', textButton = 'Zamknij...' }: Props) {
+function ModalDialog({ openModal, closeModal, title='Coś poszło nie tak...', notification ='', notificationType = 'OK', textButton = 'Zamknij...' }: Props) {
 
   const modalTypeVariants = {
     Alert: "bg-rose-300 text-rose-900 hover:bg-rose-200 focus-visible:ring-rose-500",
@@ -62,11 +62,8 @@ function ModalDialog({ openModal, closeModal, title='Coś poszło nie tak...', n
                  {title}
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    {notification}
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: notification }} className="text-sm text-gray-500" />
                 </div>
-
                 <div className="mt-4">
                   <button
                     type="button"

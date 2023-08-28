@@ -9,10 +9,8 @@ import { InView } from 'react-intersection-observer';
 import NotificationsType from '@/interfaces/modal-dialog';
 import Header from '@/components/header';
 
-//type InputState = "NotVerify" | "VerifyPass" | "VerifyNotPass";
-
 type Verify = "NotVerify" | "VerifyPass" | "VerifyNotPass";
-type InfoAboutKocot = "internet" | "znajomi" | "inny...";
+type InfoAboutKocot = "internet" | "znajomi" | "inny..." | "";
 
 type InputState = {
     value: string;
@@ -45,6 +43,7 @@ const getInitialInputState = (): IFormState => (
 const ContactForm = () => {
     const { executeRecaptcha } = useGoogleReCaptcha();
     const [notificationType, setNotificationType] = useState<NotificationsType>('OK');
+    const [notification, setNotification] = useState<string>('');
     const [formProcess, setFormProcess] = useState<boolean>(false);
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -67,30 +66,22 @@ const ContactForm = () => {
 
     }, [executeRecaptcha]);
 
-    console.log(formState);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        
+        const name = e.target.name as keyof IFormState;
+        const value = e.target.value;
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
         setInputState((prevState: IFormState) => ({
             ...prevState,
-            //          [name]: {value: value, verified: prevState[name].verified}
             [name]: { ...prevState[name], value: value }
         }));
     };
 
-    //   const handleChange2 = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    //     const { name, value } = e.target;
-    //     console.log(e.target.value);
-    //   };
-
     const handleFormVerify = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        for (const obj of Object.keys(formState)) {
-            const inputEl: InputState | SelectState = formState[obj];
-
-//            if (formState[obj].value === '') {
-            if (inputEl.value === '') {    
+        for (const obj of Object.keys(formState) as (keyof IFormState)[]) {
+            if (formState[obj].value === '') {
                 setInputState((prevState: IFormState): IFormState => ({
                     ...prevState,
                     [obj]: { ...prevState[obj], verified: "VerifyNotPass" },
@@ -98,46 +89,31 @@ const ContactForm = () => {
             } else {
                 setInputState((prevState: IFormState): IFormState => ({
                     ...prevState,
-                    [obj]: { ...prevState[obj], verified: "VerifyPass" }                    
-
+                    [obj]: { ...prevState[obj], verified: "VerifyPass" }
                 }));
-    
             }
         }
-
-        // if (name.value === '') {
-        //     setInputState((prevState: IFormState) => ({
-        //         ...prevState,
-        //         name: { value: name.value, verified: "VerifyNotPass" }
-        //     }));
-        // } else {
-        //     setInputState((prevState: IFormState) => ({
-        //         ...prevState,
-        //         name: { value: name.value, verified: "VerifyPass" }
-        //     }));
-
-        // }
-        // if (date.value === '') {
-        //     setInputState((prevState: IFormState) => ({
-        //         ...prevState,
-        //         date: { value: date.value, verified: "VerifyNotPass" }
-        //     }));
-        // } else {
-        //     setInputState((prevState: IFormState) => ({
-        //         ...prevState,
-        //         date: { value: date.value, verified: "VerifyPass" }
-        //     }));
-
-        // }        
+        
+        if (name.value !== '' && email.value !== '' && date.value !== ''
+            && message.value !== '' && from.value !== '') {
+            console.log(formState);
+            setIsOpen(true);
+            setNotificationType('Info');
+            setNotification('Wiadomość została wysłana.')
+        }
+        else {
+            setIsOpen(true);
+            setNotificationType('Alert');
+            setNotification('Proszę wypełnić poprawnie wszystkie oznaczone pola formularza i&nbsp;spróbować ponownie.');
+        }        
     }
-
 
     return (
         <>
             <Header pic="headercontact" text='Kontakt' />
             <section id="kontakt">
                 <ModalDialog openModal={isOpen} closeModal={setIsOpen} notificationType={notificationType} title='Formularz kontaktowy'
-                    notification='Proszę wypełnić poprawnie wszystkie oznaczone pola formularza i&nbsp;spróbować ponownie.' textButton='Zamknij' />
+                    notification={notification} />
                 <section id="contact-form">
                     <Container>
                         <div className="px-4 sm:px-8 lg:px-10 max-w-7xl mx-auto text-white text-justify text-xl md:text-2xl lg:text-3xl font-light font-dosis mb-14">
@@ -182,7 +158,14 @@ const ContactForm = () => {
                                                     </label>
                                                     <label className="block">
                                                         <span className="">Twój email</span>
-                                                        <input type="email" className="focus:border-fiolet focus:ring-fiolet text-black mt-1 block w-full" placeholder="twoj@email.pl" />
+                                                        <input 
+                                                            name="email"
+                                                            type="email"
+                                                            value={email.value}
+                                                            onChange={handleChange}
+                                                            className={cn({ "bg-rose-300": email.verified == "VerifyNotPass" }, "focus:border-fiolet focus:ring-fiolet text-black mt-1 block w-full")} 
+                                                            placeholder="twoj@email.pl"
+                                                        />
                                                     </label>
                                                     <label className="block">
                                                         <span className="">Data ślubu / sesji</span>
@@ -206,7 +189,13 @@ const ContactForm = () => {
                                                     </label>
                                                     <label className="block">
                                                         <span className="">Treść wiadomości</span>
-                                                        <textarea className="focus:border-fiolet focus:ring-fiolet text-black mt-1 block w-full" rows={3}></textarea>
+                                                        <textarea name="message"
+                                                            className={cn({ "bg-rose-300": message.verified == "VerifyNotPass" }, "focus:border-fiolet focus:ring-fiolet text-black mt-1 block w-full")}
+                                                            onChange={handleChange}
+                                                            value={message.value}
+                                                            rows={3}>
+
+                                                        </textarea>
                                                     </label>
                                                     <div className="flex items-center justify-center">
                                                         <button

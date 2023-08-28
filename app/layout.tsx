@@ -45,7 +45,6 @@ export default function RootLayout({
     <html className={`${dosis.variable} ${amaticsc.variable}`} lang="pl">
       <body className={'bg-main-bg-color'}>
         <GoogleReCaptchaProvider reCaptchaKey={ typeof process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY != "undefined" ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY : '' }>
-          {/* TODO: add tag current menu item */}
           <Menu itemsMenu={navigation} />
           <div className="min-h-screen">
             {children}

@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Container from './container'
 import { useState, useEffect } from 'react';
 import cn from 'classnames'
+import { usePathname } from 'next/navigation'
 
 type Props = {
   itemsMenu: { name: string, href: string, current: boolean }[],
@@ -12,6 +13,9 @@ type Props = {
 
 export default function Menu({ itemsMenu }: Props) {
   const [navbarShrinked, setnavbarShrinked] = useState(false);
+  const pathname = usePathname();
+
+  const currentPath = (pathname.slice(1));
 
   // TODO: add navbar shrink 
    var navbarShrink = function () {
@@ -64,11 +68,11 @@ export default function Menu({ itemsMenu }: Props) {
                         key={item.name}
                         href={item.href}
                         className={cn({
-                          'bg-gray-900 text-white': item.current, 
+                          'bg-gray-900 text-white': item.href === currentPath, 
                           'text-purple-mountains-majesty-600 active:bg-transparent hover:bg-black hover:text-white': !item.current},
                           'rounded-md px-3 py-2 text-2xl font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.href === currentPath ? 'page' : undefined}
                       >
                         {item.name}
                       </a>
@@ -95,11 +99,11 @@ export default function Menu({ itemsMenu }: Props) {
                     as="a"
                     href={item.href}
                     className={cn({
-                      'bg-black text-white': item.current, 
-                      'text-purple-mountains-majesty-600 active:bg-transparent visited:bg-yellow-500 hover:bg-black hover:text-white avtive:bg-black-700': !item.current},
+                      'bg-black text-white': item.href === currentPath, 
+                      'text-purple-mountains-majesty-600 active:bg-transparent hover:bg-black hover:text-white avtive:bg-black-700': !item.current},
                       'block rounded-md px-3 py-2 font-medium text-base'
                     )}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={item.href === currentPath ? 'page' : undefined}
                   >
                     {item.name}
                   </Disclosure.Button>
