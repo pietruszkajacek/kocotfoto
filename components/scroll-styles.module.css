@@ -1,0 +1,70 @@
+.scroll {
+    --size: 1;
+    --color: rgba(255, 255, 255, 0.75);
+    --opacity: 1;
+    --width: calc(26px * var(--size));
+    --height: calc(var(--width) * 2);
+    --ballSize: calc(var(--width) / 4);
+    border: none;
+    display: block;
+    /* background: transparent; */
+    background: rgb(0 0 0 / 0.5);
+    padding: calc(2px * var(--size));
+    border-radius: calc(var(--width) / 2);
+
+    cursor: default;
+    opacity: var(--opacity);
+    /* z-index: 1001; */
+    transition: opacity 0.165s ease-out, transform 0.165s ease-out;
+    position: relative;
+}
+
+.scroll span {
+    position: relative;
+    display: block;
+    width: var(--width);
+    height: var(--height);
+    border: calc(2px * var(--size)) solid var(--color);
+    border-radius: calc(var(--width) / 2);
+}
+
+.scroll span:before {
+    content: ' ';
+    width: var(--ballSize);
+    height: var(--ballSize);
+    border-radius: 50%;
+    background-color: var(--color);
+    position: absolute;
+    top: calc(var(--height) * 0.1);
+    left: calc(50% - var(--ballSize) / 2);
+    animation: scroll 1s infinite;
+}
+
+@media all and (max-width: 3080px) {
+    .scroll {
+        --size: 1;
+        --width: calc(26px * var(--size));
+        --height: calc(var(--width) * 2);
+    }
+
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(0, calc(var(--height) * 0.7));
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

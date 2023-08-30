@@ -36,7 +36,7 @@ export default function PortfolioPage({ portfolioPhotos }: Props) {
                             </p>
                             <PhotoAlbum
                                 photos={portfolioPhotos}
-                                layout="rows"
+                                layout="masonry"
                                 renderPhoto={NextJsImage}
                                 defaultContainerWidth={1200}
                                 componentsProps={{

@@ -51,7 +51,9 @@ const config: Config = {
         '7xl': '4.5rem',
         '8xl': '6.25rem',
       },
-
+      height: {
+        'full-svh': '100svh',
+      }
     },
   },
   plugins: [
