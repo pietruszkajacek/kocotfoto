@@ -1,5 +1,5 @@
 .scroll {
-    --size: 1;
+    /* --size: 1; */
     --color: rgba(255, 255, 255, 0.75);
     --opacity: 1;
     --width: calc(26px * var(--size));
@@ -40,14 +40,14 @@
     animation: scroll 1s infinite;
 }
 
-@media all and (max-width: 3080px) {
+/* @media all and (max-width: 3080px) {
     .scroll {
         --size: 1;
         --width: calc(26px * var(--size));
         --height: calc(var(--width) * 2);
     }
 
-}
+} */
 
 @keyframes scroll {
     0% {
