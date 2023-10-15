@@ -17,8 +17,7 @@ export async function getPhotos(url: string, dir: string) {
     const photosDirectory = join(process.cwd(), dir);
     const files = fs.readdirSync(photosDirectory);
 
-    // TODO: RegExp filter files by image extension (jpg|webp|png... etc.)
-    const photos = files;
+    const photos = files.filter((filename) => (/\.(gif|jpe?g|png|webp|bmp)$/i).test(filename));
 
     const photosWH = (await Promise.all(photos.map(async (photo) => {
         try {
